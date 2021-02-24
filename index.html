@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>ScaffoldSQL: Learning SQL via test cases and Parson's problems</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link href="css/parsons.css" rel="stylesheet" />
+  <link href="lib/prettify.css" rel="stylesheet" />
+  <script src="lib/prettify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.js"></script>
+
+  <style>
+    .testcase_output {
+      background-color: lightgray;
+    }
+    .pass {
+      background-color: lightgreen;
+    }
+    .fail {
+      background-color: pink;
+    }
+
+  </style>
+</head>
+
+<body onload="loadBookDB()">
+  <h1>ScaffoldSQL</h1>
+
+  <main>
+    <label class='nohint' for='commands'>Enter some SQL</label>
+    <br class='nohint'>
+	
+	<div id='hint_area' style='display: none;'>
+	<p>Construct your SQL program by dragging lines of code from the left to the right. You can change the names of the (<span class="jsparson-toggle"></span>)
+	  values by clicking them. You don't necessarily need to use all of the lines.</p>
+	<div id="sortableTrash" class="sortable-code"><p>Trash</p></div>
+	<div id="sortable" class="sortable-code"><p>Solution</p></div>
+	<div style="clear:both;"></div>
+	<p>
+	  <button class='button' href="#" id="newInstanceLink">Reshuffle</button>
+	  <button class='button' href="#" id="feedbackLink">Execute</button>
+	</p>
+	<div style="clear:both;"></div>
+
+	<!-- <div id="unittest"></div> -->
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/jquery-ui.min.js"></script>
+	<script src="lib/jquery.ui.touch-punch.min.js"></script>
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/lis.js"></script>
+	<script src="js/parsons.js"></script>
+	<script src="lib/skulpt.js"></script>
+	<script src="lib/skulpt-stdlib.js"></script>
+
+</div>
+
+
+    <textarea class='nohint' id="commands">
+SELECT *
+FROM Players;
+    </textarea>
+
+    <button id="execute" class="nohint button">Execute</button>
+	<button id="hint" class="nohint button">Hint</button>
+
+    <!--
+    <button id='savedb' class="button">Save the db</button>
+    <label class="button">Load an SQLite database file: <input type='file' id='dbfile'></label>
+    -->
+    <p></p>
+    <div id="error" class="error"></div>
+
+    <div id="testcase_output" class="testcase_output">Test case results will be displayed here</div>
+
+    <pre id="output">Database output will be displayed here</pre>
+  </main>
+
+  <script src="js/sql.js"></script>
+
+  <footer>
+    <a target="_blank" href=".">Full Screen</a><br>
+    SQL Interpreter uses sql.js (<a target="_blank" href='https://github.com/sql-js/sql.js'>sql-js repo</a>). 
+    <a target="_blank" href='https://github.com/sql-js/sql.js/blob/master/LICENSE'>LICENSE</a>
+	<br />
+	Parson's Problem Interface uses parsons.js (<a target="_blank" href='https://github.com/js-parsons/js-parsons'>js-parsons repo</a>)
+	<a target="_blank" href='https://github.com/js-parsons/js-parsons/blob/master/LICENSE'>LICENSE</a>
+  </footer>
+
+
+  <script type="text/javascript" src="js/scaffold_sql.js"></script>
+
+</body>
+
+</html>

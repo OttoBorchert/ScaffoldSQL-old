@@ -1,0 +1,7 @@
+Only appears to work in Firefox. You must apply the following settings:
+
+- type "about:config" in the address bar and accept "i'll be careful"
+- find "security.checkloaduri" in older versions or "security.fileuri.strict_origin_policy" in newer versions of firefox and change the value to "false"
+- restart firefox
+
+Based on - https://stackoverflow.com/questions/192080/firefox-links-to-local-or-network-pages-do-not-work
